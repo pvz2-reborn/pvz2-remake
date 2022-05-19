@@ -32,65 +32,146 @@ public class displayLOGO : MonoBehaviour
         UI_FadeOut_Event();
     }
 
-    private Image progressBar;
+    
     public bool startLoadBar = false;
+    private Image progressBar;
 
-    public void loadBar () {
+    Vector4 loadBarNomalColor = new Vector4(1.000f, 1.000f, 1.000f, 1.000f);
+    Vector4 loadBarChangedColor = new Vector4(1.000f, 1.000f, 1.000f, 0.300f);
+
+    public void fillLoadBar () {
+        //progressBar.fillOrigin = 0;
         //Tweener tweener = progressBar.transform.DOScale(Vector3(), 3.0f)
         startLoadBar = true;
+        //progressBar.fillAmount = 0.1f;
+        Debug.Log("Loading...");
+        progressBar.DOFillAmount(1f, 10.0f);
+
+        
     }
 
     public void Awake()
     {
+
         progressBar = GameObject.Find("Canvas/loadBar").GetComponent<Image>();
-        progressBar.type = Image.Type.Filled;
-        progressBar.fillMethod = Image.FillMethod.Horizontal;
-        progressBar.fillOrigin = 0;
+        progressBar.fillAmount = 0.0f;
+        //startLoadBar = true;
+        
+        //progressBar.color = new Vector4(1.000f, 1.000f, 1.000f, 1.000f);
+        //Debug.Log(Color.red);
+        //progressBar.type = Image.Type.Filled;
+        //progressBar.fillMethod = Image.FillMethod.Horizontal;
+        //progressBar.fillOrigin = 0;
     }
 
-    public void SetProgressValue10()
-    {
-        progressBar.fillAmount = 10f;
+    private CanvasGroup canvasTemp;
+    public void hideLoader () {
+        GameObject bgloadBarUI = GameObject.Find("Canvas/bgLoadBar");
+        GameObject loadBarUI = GameObject.Find("Canvas/loadBar");
+        GameObject copyRightUI = GameObject.Find("Canvas/copyRight");
+        GameObject bgBlack = GameObject.Find("Canvas/bgBlack");
+
+        canvasTemp = loadBarUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 0;
+        canvasTemp.blocksRaycasts = false;
+
+        canvasTemp = copyRightUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 0;
+        canvasTemp.blocksRaycasts = false;
+
+        canvasTemp = bgloadBarUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 0;
+        canvasTemp.blocksRaycasts = false;
+
+        canvasTemp = bgBlack.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 0;
+        canvasTemp.blocksRaycasts = false;
+
     }
-    public void SetProgressValue20()
-    {
-        progressBar.fillAmount = 20f;
+    public void hideStartMenuRealize () {
+        GameObject contentButtonUI = GameObject.Find("Canvas/contentButton");
+        GameObject nameEntryUI = GameObject.Find("Canvas/nameEntry");
+        GameObject startGameButtonUI = GameObject.Find("Canvas/startGameButton");
+        GameObject cloudSaveButtonUI = GameObject.Find("Canvas/cloudSaveButton");
+        GameObject settingButtonUI = GameObject.Find("Canvas/settingButton");
+        GameObject newsButtonUI = GameObject.Find("Canvas/newsButton");
+        GameObject closeGameButtonUI = GameObject.Find("Canvas/closeGameButton");
+
+        canvasTemp = contentButtonUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 0;
+        canvasTemp.blocksRaycasts = false;
+
+        canvasTemp = nameEntryUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 0;
+        canvasTemp.blocksRaycasts = false;
+
+        canvasTemp = startGameButtonUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 0;
+        canvasTemp.blocksRaycasts = false;
+
+        canvasTemp = cloudSaveButtonUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 0;
+        canvasTemp.blocksRaycasts = false;
+
+        canvasTemp = settingButtonUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 0;
+        canvasTemp.blocksRaycasts = false;
+
+        canvasTemp = newsButtonUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 0;
+        canvasTemp.blocksRaycasts = false;
+
+        canvasTemp = closeGameButtonUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 0;
+        canvasTemp.blocksRaycasts = true;
     }
-    public void SetProgressValue30()
-    {
-        progressBar.fillAmount = 30f;
+    public void displayStartMenuRealize () {
+        GameObject contentButtonUI = GameObject.Find("Canvas/contentButton");
+        GameObject nameEntryUI = GameObject.Find("Canvas/nameEntry");
+        GameObject startGameButtonUI = GameObject.Find("Canvas/startGameButton");
+        GameObject cloudSaveButtonUI = GameObject.Find("Canvas/cloudSaveButton");
+        GameObject settingButtonUI = GameObject.Find("Canvas/settingButton");
+        GameObject newsButtonUI = GameObject.Find("Canvas/newsButton");
+        GameObject closeGameButtonUI = GameObject.Find("Canvas/closeGameButton");
+
+        canvasTemp = contentButtonUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 1;
+        canvasTemp.blocksRaycasts = true;
+
+        canvasTemp = nameEntryUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 1;
+        canvasTemp.blocksRaycasts = true;
+
+        canvasTemp = startGameButtonUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 1;
+        canvasTemp.blocksRaycasts = true;
+
+        canvasTemp = cloudSaveButtonUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 1;
+        canvasTemp.blocksRaycasts = true;
+
+        canvasTemp = settingButtonUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 1;
+        canvasTemp.blocksRaycasts = true;
+
+        canvasTemp = newsButtonUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 1;
+        canvasTemp.blocksRaycasts = true;
+
+        canvasTemp = closeGameButtonUI.GetComponent<CanvasGroup>();
+        canvasTemp.alpha = 1;
+        canvasTemp.blocksRaycasts = true;
     }
-    public void SetProgressValue40()
-    {
-        progressBar.fillAmount = 40f;
+    public void displayStartMenu () {
+        hideLoader ();
+        displayStartMenuRealize ();
+        //hideLoader ();
     }
-    public void SetProgressValue50()
-    {
-        progressBar.fillAmount = 50f;
-    }
-    public void SetProgressValue60()
-    {
-        progressBar.fillAmount = 60f;
-    }
-    public void SetProgressValue70()
-    {
-        progressBar.fillAmount = 70f;
-    }
-    public void SetProgressValue80()
-    {
-        progressBar.fillAmount = 80f;
-    }
-    public void SetProgressValue90()
-    {
-        progressBar.fillAmount = 90f;
-    }
-    public void SetProgressValue100()
-    {
-        progressBar.fillAmount = 100f;
-    }
+
     public void newBeforeLoadBar () {
         Sequence seq = DOTween.Sequence();//执行队列
         seq.AppendCallback(() => {
+            hideStartMenuRealize ();
             displayEALOGO ();
         });
         seq.AppendInterval(2.0f);
@@ -109,17 +190,24 @@ public class displayLOGO : MonoBehaviour
         seq.AppendCallback(() => {
             displayLoadMenu ();
         });
-        seq.AppendInterval(1.0f);
+        seq.AppendInterval(0.6f);
         seq.AppendCallback(() => {
-            //displayLoadMenu ();
-            
+           fillLoadBar ();
+           //Debug.Log("Load Success!");
         });
-
+        seq.AppendInterval(10.0f);
+        seq.AppendCallback(() => {
+           //loadBar ();
+           Debug.Log("Load Success!");
+           displayStartMenu ();
+        });
     }
 
     void Start()
     {
+        //displayStartMenu ();
         newBeforeLoadBar ();
+        //onLoadBar ();
         //displayEALOGO ();
         //Invoke("hideEALOGO",2);
         //Invoke("displayPvz2LOGO",3.5f);
@@ -159,7 +247,7 @@ public class displayLOGO : MonoBehaviour
         }
         if(startLoadBar) {
             //progressBar.transform.position.width = MoveTowards(progressBar.transform.position.width,1000f,2.5f * Time.deltaTime);
-            
+            progressBar.color = Color.Lerp(loadBarNomalColor, loadBarChangedColor, Mathf.PingPong(Time.time, 0.55f));
         }
     }
     public void UI_FadeIn_Event()
