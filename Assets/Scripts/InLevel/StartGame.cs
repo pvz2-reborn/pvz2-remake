@@ -1,28 +1,68 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class StartGame : MonoBehaviour
 {
-    public float smooth;
     public Vector3 gamestart_pos;
     public Vector3 select_plants_pos;
     public Vector3 maxreach_pos;
-    public Camera MainCamera;
-    public float speed = 0.1F;
+    private Camera MainCamera;
 
-    public bool canCameraMove = false;
-    public bool canSelectPlants = false;
-    public bool isSecondCamerMove = false;
-    public bool moveSuccess = false;
+    private bool canSelectPlants = false;
+
+    
 
     //uishide
     GameObject UI;
     //level settings
     public string levelStartBGM = "egyptMinigame";
 
+    public void doSeeZombie () {
+        MainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        Sequence seq = DOTween.Sequence();//执行队列
+        seq.Append(
+            MainCamera.transform.DOMove(new Vector3(10.0f, 0.0f, -10.0f), 2.0f)
+        );
+        seq.AppendCallback( () => {
+            if (canSelectPlants) {
+                seq.Append(
+                    MainCamera.transform.DOMove(new Vector3(4.0f, 0.0f, -10.0f), 2.5f)
+                );
+                Invoke("doSelectPlants", 2.5f);
+            }
+            else {
+                doBackLawn();
+            }
+        });
+       
+       
+
+    }
+    public void doSelectPlants () {
+        Debug.Log("Selecting Plant");
+        
+        //
+        doBackLawn ();
+    }
+    public void doBackLawn () {
+        MainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        levelManager manager = GameObject.Find("levelManager").GetComponent<levelManager>();
+        Sequence seq = DOTween.Sequence();//执行队列
+        seq.Append(
+            MainCamera.transform.DOMove(new Vector3(0.0f, 0.0f, -10.0f), 2.0f)
+        );
+        seq.AppendCallback( () => {
+            //doSelectPlants ();
+            manager.doBeforeStartLevel ();
+        });
+    }
 
     void Start(){
+        doSeeZombie ();
         /*
         UI = GameObject.Find("Canvas/pauseButton");
         UI.SetActive(false);
@@ -37,59 +77,13 @@ public class StartGame : MonoBehaviour
         */ //hide
         //pauseButton,2xSpeedButton,sunNumBG,plantFood,powerUpFrame
         //Debug.Log(MainCamera.transform.position);
-        canCameraMove = true;
-        canSelectPlants = false;
-        GameObject.Find("BGMmanager").SendMessage("playInternalBGM","egyptMinigame");
+        //canCameraMove = true;
+        //canSelectPlants = false;
+        //GameObject.Find("BGMmanager").SendMessage("playInternalBGM","egyptMinigame");
     }
  
     void Update() {
-        /*
-        gamestart_pos = new Vector3(0, 0, -10);
-        select_plants_pos = new Vector3(4, 0, -10);
-        maxreach_pos = new Vector3(10, 0, -10);
-
-        smooth = 5;
-
-        MainCamera.transform.position = Vector3.Lerp(gamestart_pos, maxreach_pos, smooth * Time.deltaTime);
-        */
-        //MainCamera.transform.Translate(Vector3.right * Time.deltaTime, Space.World);
-        //MainCamera.transform.position = Vector3.SmoothDamp(transform.position, new Vector3(10, 0, -10), refve, 0);
-        if (canCameraMove) {
-
-            if (transform.position.x <= 7.5f) {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(10.0f, 0.0f, -10.0f), 2.5f * Time.deltaTime);
-                MainCamera.transform.position = Vector3.Lerp(transform.position, new Vector3(0.0f, 0.0f, -10.0f), 2.5f * Time.deltaTime);
-            }
-
-            else {
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(10.0f, 0.0f, -10.0f), 2.5f * Time.deltaTime);
-                MainCamera.transform.position = Vector3.MoveTowards(transform.position, new Vector3(0.0f, 0.0f, -10.0f), 2.5f * Time.deltaTime);
-            }
-            
-            if (transform.position.x >= 10.0f) {
-                canCameraMove = false;
-                isSecondCamerMove = true;
-                //UI = GameObject.Find("Canvas/pauseButton");
-                //UI.SetActive(true);
-            }
-           
-        }
-        
-        else if (canSelectPlants && isSecondCamerMove){
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(4.0f, 0.0f, -10.0f), 3.0f * Time.deltaTime);
-            MainCamera.transform.position = Vector3.MoveTowards(transform.position, new Vector3(0.0f, 0.0f, -10.0f), 3.0f * Time.deltaTime);
-            if (transform.position.x <= 4.0f)
-                isSecondCamerMove = false;
-        }
-        else if (!canSelectPlants && isSecondCamerMove) {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(0.0f, 0.0f, -10.0f), 4.0f * Time.deltaTime);
-            MainCamera.transform.position = Vector3.MoveTowards(transform.position, new Vector3(0.0f, 0.0f, -10.0f), 4.0f * Time.deltaTime);
-            if (transform.position.x <= 0.00f) {
-                isSecondCamerMove = false;
-                GameObject.Find("levelManager").SendMessage("doStartLevel"); 
-            }
-                
-        }
+       
     }
     
    

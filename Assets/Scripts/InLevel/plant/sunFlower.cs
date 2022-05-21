@@ -20,6 +20,10 @@ using Plant;
         
         private Animator animator;
         public void creat () {
+            levelManager lvManager = GameObject.Find("levelManager").GetComponent<levelManager>();
+            if(!lvManager.isStartedGame) return;
+
+
             sunManager manager = GameObject.Find("skyManager").GetComponent<sunManager>();
             Sequence seq = DOTween.Sequence();//执行队列
             seq.AppendCallback(() => {

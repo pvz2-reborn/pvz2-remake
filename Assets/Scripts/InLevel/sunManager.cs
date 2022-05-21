@@ -75,6 +75,9 @@ public class sunManager : MonoBehaviour
     public sunMain creatSun (int sunNum, string creatType) {
         GameObject sunObject = GameObject.Instantiate<GameObject>(prefabSun, Vector3.zero, Quaternion.identity, transform);
         sunMain sun =  sunObject.GetComponent<sunMain>();
+        //防止刚体影响下落
+        //Rigidbody2D sunRigidBody = sun.GetComponent<Rigidbody2D>();
+
         //添加图层顺序防止闪烁
         SpriteRenderer sunRender = sunObject.GetComponent<SpriteRenderer>();
         sunRender.sortingOrder = creatNum;
