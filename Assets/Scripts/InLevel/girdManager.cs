@@ -18,7 +18,7 @@ public class girdManager : MonoBehaviour
     }
     void Update() {
         if(Input.GetMouseButtonDown(0)) {
-            Debug.Log(getGridByMouse());
+            //Debug.Log(getGridByMouse());
         }
     }
 
