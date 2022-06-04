@@ -1,0 +1,6 @@
+{
+    "HP": 100.0,
+    "sunCost": 100,
+    "coolDown": 1.0,
+    "eventCD": 1.0
+}

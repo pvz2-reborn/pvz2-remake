@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[InitializeOnLoad]
 public class Startup {
     static Startup()
     {

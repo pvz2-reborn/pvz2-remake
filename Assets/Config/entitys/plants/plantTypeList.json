@@ -1,0 +1,40 @@
+{
+    "version": 1,
+    "Plant": [
+        {
+            "objclass": "PlantType",
+            "aliases": [
+                "sunflower"
+            ],
+            "objdata": {
+                "TypeName": "sunflower",
+                "PlantFramework": "PlantSunflower",
+                "PlantResourceGroups": [
+                    "PlantSunflower"
+                ],
+                "Properties": "RTID(SunflowerDefault@PropertySheets)",
+                "AnimRigClass": "PlantAnimRig_Sunflower",
+                "PopAnim": "POPANIM_PLANT_SUNFLOWER",
+                "HomeWorld": "tutorial"
+            }
+        },
+        {
+            "objclass": "PlantType",
+            "aliases": [
+                "peashooter"
+            ],
+            "objdata": {
+                "TypeName": "peashooter",
+                "PlantFramework": "PlantPeashooter",
+                "PlantResourceGroups": [
+                    "PlantPeashooter",
+                    "PlantPeashooterAudio"
+                ],
+                "Properties": "RTID(PeashooterDefault@PropertySheets)",
+                "AnimRigClass": "PlantAnimRig",
+                "PopAnim": "POPANIM_PLANT_PEASHOOTER",
+                "HomeWorld": "tutorial"
+            }
+        }
+    ]
+}

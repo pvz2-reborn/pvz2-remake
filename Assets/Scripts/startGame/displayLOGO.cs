@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using System;
 using DG.Tweening;
 
+using CustomSaveLoadSystem;
+
 public class displayLOGO : MonoBehaviour
 {
     private float UI_Alpha = 1;             //初始化时让UI显示
@@ -193,6 +195,7 @@ public class displayLOGO : MonoBehaviour
         seq.AppendInterval(0.6f);
         seq.AppendCallback(() => {
            fillLoadBar ();
+           loadSaveData();
            //Debug.Log("Load Success!");
         });
         seq.AppendInterval(10.0f);
@@ -202,11 +205,70 @@ public class displayLOGO : MonoBehaviour
            displayStartMenu ();
         });
     }
+    public class PlayerData {
+        public class PlayerMain {
+            public int sortPriority {get; set; }
+            public string name {get; set; }
+            public int age {get; set; }
+            public int coin {get; set; }
+            public int gem {get; set; }
+
+            public List<int> havePlants {get; set; }
+            public List<int> seenZombies {get; set; }
+
+            public class UnLockedWorld {
+                public string name {get; set; }
+                public int id {get; set; }
+                public string stage {get; set; }
+            }
+            public List<UnLockedWorld> unLockedWorlds {get; set; }
+        }
+        public int version {get; set; }
+        public List<PlayerMain> player = new List<PlayerMain>();
+    }
+        
+    
+    PlayerData tempData = new PlayerData ();
+    PlayerData pldata = new PlayerData ();
+    private void loadSaveData () {
+        //Debug.Log(pldata.playerName);
+        if(SaveAndLoadSystem.Load<PlayerData>(out tempData,"player")) {
+            pldata = tempData;
+            Debug.Log("不是第一次进游戏");
+            Debug.Log(pldata.player[0].age);
+        }
+        else {
+            Debug.Log("第一次进游戏，创建存档中...");
+
+            pldata.version = 1;
+            pldata.player.Add(new PlayerData.PlayerMain {
+                sortPriority = 1,
+                name = "User Dave",
+                age = 5, 
+                coin = 0, 
+                gem = 0,
+                havePlants = new List<int> {1, 2, 3, 4, 5},
+                seenZombies = new List<int> {1, 2, 3},
+                unLockedWorlds = new List<PlayerData.PlayerMain.UnLockedWorld> {
+                    new PlayerData.PlayerMain.UnLockedWorld {
+                        name = "TestWorld",
+                        id = 1,
+                        stage = "test1"
+                    }
+                }
+            });
+
+            SaveAndLoadSystem.Save(pldata, "player");
+        }
+        
+        
+    }
 
     void Start()
     {
+        
+        //newBeforeLoadBar ();
         //displayStartMenu ();
-        newBeforeLoadBar ();
         //onLoadBar ();
         //displayEALOGO ();
         //Invoke("hideEALOGO",2);
@@ -226,7 +288,11 @@ public class displayLOGO : MonoBehaviour
         Invoke("SetProgressValue90",16);
         Invoke("SetProgressValue100",17);
         */
-        
+        //SaveAndLoadSystem system = new SaveAndLoadSystem ();
+        //SaveAndLoadSystem.Load<playerData>(out pldata,"player");
+       // pldata.playerName = "User Dave";
+        //pldata.playerAge = 24;
+        //SaveAndLoadSystem.Save(pldata, "player");
     }
 
     // Update is called once per frame

@@ -1,0 +1,40 @@
+{
+    "MapList": [
+        {
+            "MapName": "tutorial",
+            "UnlockedFrom": "",
+            "EntryPoint": "tutorial_level_intro1",
+            "Difficulty": 1,
+            "LastLevel": [
+                "tutorial4"
+            ],
+            "ComingSoon": false,
+            "Hidden": false,
+            "UniverseIconOffset": {
+                "mX": 0,
+                "mY": 0
+            },
+            "Disabled": false,
+            "UseNightSpiral": false,
+            "DrawWorldName": true
+        },
+        {
+            "MapName": "egypt",
+            "UnlockedFrom": "",
+            "EntryPoint": "egypt_level_1",
+            "Difficulty": 2,
+            "LastLevel": [
+                "egypt25"
+            ],
+            "ComingSoon": false,
+            "Hidden": false,
+            "UniverseIconOffset": {
+                "mX": 9,
+                "mY": 0
+            },
+            "Disabled": false,
+            "UseNightSpiral": false,
+            "DrawWorldName": true
+        }
+    ]
+}

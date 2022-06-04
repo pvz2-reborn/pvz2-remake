@@ -1,0 +1,132 @@
+{
+    "version": 233,
+    "mapPieces": [
+        {
+            "position": {
+                "x": -5.1,
+                "y": 7.0
+            },
+            "eventType": "level",
+            "name": "egypt_level_1",
+            "dataString": "egypt1",
+            "parentEvent": "",
+            "displayText": "1",
+            "cost": 0,
+            "autoVisible": true,
+            "completedEvent": "",
+            "unlockedEvent": "",
+            "levelNodeType": "normal",
+            "drawLayer": 0,
+            "rotationAngle": 0,
+            "rotationRate": 0.0,
+            "scaleX": 1.0,
+            "scaleY": 1.0
+        },
+        {
+            "position": {
+                "x": -0.1,
+                "y": 8.0
+            },
+            "eventType": "level",
+            "name": "egypt_level_2",
+            "dataString": "egypt2",
+            "parentEvent": "egypt_level_1",
+            "displayText": "2",
+            "cost": 0,
+            "autoVisible": true,
+            "completedEvent": "",
+            "unlockedEvent": "",
+            "levelNodeType": "normal",
+            "drawLayer": 0,
+            "rotationAngle": 0,
+            "rotationRate": 0.0,
+            "scaleX": 1.0,
+            "scaleY": 1.0
+        },
+        {
+            "position": {
+                "x": 4.9,
+                "y": 6.0
+            },
+            "eventType": "level",
+            "name": "egypt_level_3",
+            "dataString": "egypt3",
+            "parentEvent": "egypt_level_2",
+            "displayText": "3",
+            "cost": 0,
+            "autoVisible": true,
+            "completedEvent": "",
+            "unlockedEvent": "",
+            "levelNodeType": "normal",
+            "drawLayer": 0,
+            "rotationAngle": 0,
+            "rotationRate": 0.0,
+            "scaleX": 1.0,
+            "scaleY": 1.0
+        },
+        {
+            "position": {
+                "x": 9.9,
+                "y": 7.0
+            },
+            "eventType": "level",
+            "name": "egypt_level_4",
+            "dataString": "egypt4",
+            "parentEvent": "egypt_level_3",
+            "displayText": "4",
+            "cost": 0,
+            "autoVisible": true,
+            "completedEvent": "",
+            "unlockedEvent": "",
+            "levelNodeType": "normal",
+            "drawLayer": 0,
+            "rotationAngle": 0,
+            "rotationRate": 0.0,
+            "scaleX": 1.0,
+            "scaleY": 1.0
+        },
+        {
+            "position": {
+                "x": 14.9,
+                "y": 7.0
+            },
+            "eventType": "level",
+            "name": "egypt_level_5",
+            "dataString": "egypt5",
+            "parentEvent": "egypt_level_4",
+            "displayText": "5",
+            "cost": 0,
+            "autoVisible": true,
+            "completedEvent": "",
+            "unlockedEvent": "",
+            "levelNodeType": "normal",
+            "drawLayer": 0,
+            "rotationAngle": 0,
+            "rotationRate": 0.0,
+            "scaleX": 1.0,
+            "scaleY": 1.0
+        },
+        {
+            "position": {
+                "x": 4.9,
+                "y": 8.0
+            },
+            "eventType": "level",
+            "name": "egypt_level_6",
+            "dataString": "egypt6",
+            "parentEvent": "egypt_level_5",
+            "displayText": "6",
+            "cost": 0,
+            "autoVisible": true,
+            "completedEvent": "",
+            "unlockedEvent": "",
+            "levelNodeType": "normal",
+            "drawLayer": 0,
+            "rotationAngle": 0,
+            "rotationRate": 0.0,
+            "scaleX": 1.0,
+            "scaleY": 1.0
+        }
+
+    ]
+}
