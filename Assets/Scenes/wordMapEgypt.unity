@@ -1641,6 +1641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9900df16da9c14b81a4c6a583bc6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: 
 --- !u!1 &1513227889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,7 +1948,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4775749400853119794
+--- !u!1001 &2747269792220969375
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2006,9 +2007,21 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1217477257}
-    - target: {fileID: 4775749400433638797, guid: 79f5a876c84f0c64bae2eeb1de1376da, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
+    - target: {fileID: 5163966719922341895, guid: 79f5a876c84f0c64bae2eeb1de1376da, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -46.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163966719922341895, guid: 79f5a876c84f0c64bae2eeb1de1376da, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 53.235847
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163966719922341895, guid: 79f5a876c84f0c64bae2eeb1de1376da, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163966719922341895, guid: 79f5a876c84f0c64bae2eeb1de1376da, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 62.07216
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79f5a876c84f0c64bae2eeb1de1376da, type: 3}
